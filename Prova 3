@@ -1,0 +1,159 @@
+public Form1()
+        {
+            InitializeComponent();
+
+            comboBox1.Items.Add("Decimal");
+            comboBox1.Items.Add("Hexadecimal");
+            comboBox1.Items.Add("Binario");
+
+            comboBox2.Items.Add("Decimal");
+            comboBox2.Items.Add("Hexadecimal");
+            comboBox2.Items.Add("Binario");
+
+        }
+        
+        
+        private void btnD_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "D";
+
+        }
+
+        private void btnE_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "E";
+        }
+
+        private void btnF_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "F";
+        }
+
+        private void btnA_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "A";
+        }
+
+        private void btnB_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "B";
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "C";
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "7";
+        }
+
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "8";
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "9";
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "4";
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "5";
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "6";
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "1";
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "2";
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "3";
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "<";
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "0";
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "";
+        }
+
+        // converter 
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            int argumentoEntrada = 0;
+            int argumentoSaida = 0;
+
+            if (comboBox1.Text == "Hexadecimal")
+            {
+
+                argumentoEntrada = 16;
+
+            }
+
+            if (comboBox1.Text == "Decimal")
+            {
+
+                argumentoEntrada = 10;
+
+            }
+
+            if (comboBox1.Text == "Binario")
+            {
+
+                argumentoEntrada = 2;
+
+            }
+
+            if (comboBox2.Text == "Hexadecimal")
+            {
+
+                argumentoSaida = 16;
+
+            }
+
+            if (comboBox2.Text == "Decimal")
+            {
+
+                argumentoSaida = 10;
+
+            }
+
+            if (comboBox2.Text == "Binario")
+            {
+
+                argumentoSaida = 2;
+
+            }
+            label4.Text = Convert.ToString(Convert.ToInt32(textBox1.Text, argumentoEntrada),argumentoSaida);
+        }
+
+
