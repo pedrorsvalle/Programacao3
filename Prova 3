@@ -1,3 +1,6 @@
+1° = Exercício da Prova 
+
+
 public Form1()
         {
             InitializeComponent();
@@ -155,5 +158,3 @@ public Form1()
             }
             label4.Text = Convert.ToString(Convert.ToInt32(textBox1.Text, argumentoEntrada),argumentoSaida);
         }
-
-
