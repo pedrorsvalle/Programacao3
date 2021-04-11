@@ -152,9 +152,85 @@ public Form1()
 
             if (comboBox2.Text == "Binario")
             {
+            
+            
+            
+            
+            *************************************************************************************************************************************************
+            
+            
+            ******************
+            Exercíco -->  4 
+            ******************
+            
+             private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Encapsulamento 
+
+        public class Usuario
+        {
+
+            public String nome;
+            public String senha;
+            public String email;
+
+            public Usuario()
+            {
+
+            }
+
+            public Usuario(string nome, string senha, string email)
+            {
+                this.nome = nome;
+                this.senha = senha;
+                this.email = email;
+
+            }
+
+            public void setNome(String nome)
+            {
+                this.nome = nome;
+
+            }
+            public String getNome()
+            {
+                return this.nome;
+
+            }
+
+
+            public void setSenha(String senha)
+            {
+                this.senha = senha;
+
+
+            }
+            public String getSenha()
+            {
+                return this.senha;
+            }
+
+            public void setEmail(String email)
+            {
+                this.email = email;
+
+            }
+            public String getEmail()
+            {
+                return this.email;
+
+            }
+
+        }
 
                 argumentoSaida = 2;
 
             }
             label4.Text = Convert.ToString(Convert.ToInt32(textBox1.Text, argumentoEntrada),argumentoSaida);
         }
+
+
+
