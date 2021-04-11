@@ -233,4 +233,376 @@ public Form1()
         }
 
 
+*****************************************************************************************************************************************************************************
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+
+
+namespace ProvaProgamacao3
+{
+    public partial class Lstusuario : Form
+    {
+
+
+        public Lstusuario()
+        {
+            InitializeComponent();
+
+            comboBox1.Items.Add("Decimal");
+            comboBox1.Items.Add("Hexadecimal");
+            comboBox1.Items.Add("Binario");
+
+            comboBox2.Items.Add("Decimal");
+            comboBox2.Items.Add("Hexadecimal");
+            comboBox2.Items.Add("Binario");
+
+
+        }
+
+        private void btnQuestão3_Click(object sender, EventArgs e)
+        {
+
+            ofdLogo.FileName = "";
+            ofdLogo.Title = "Selecione uma foto ";
+            ofdLogo.ShowDialog();
+
+
+
+
+        }
+
+        private void ofdLogo_FileOk(object sender, CancelEventArgs e)
+        {
+            picImagens.Image = Image.FromFile(ofdLogo.FileName);
+
+
+
+        }
+        private void picImagens_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Bitmap image = (Bitmap)picImagens.Image;
+            int l = image.Width;
+            int h = image.Height;
+            int aux = 0;
+
+            for (int y = 0; y < l; y++)
+            {
+                aux = 0;
+                for (int x = 0; x < h; x++)
+                {
+                    Color pixel = image.GetPixel(y, x);
+                    int b;
+                    int r;
+                    int g;
+
+                    r = pixel.R;
+                    g = pixel.G;
+                    b = pixel.B;
+                    aux += b;
+
+                    if (x == (h - 1))
+                    {
+                        for (int i = 0; i < h; i++)
+                        {
+                            float media = aux / h;
+                            image.SetPixel(y, i, Color.FromArgb(r, g, (int)media));
+                        }
+                    }
+                }
+            }
+
+            picImagens.Image = image;
+        }
+
+
+
+
+
+
+
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Encapsulamento 
+
+        public class Usuario
+        {
+
+            public String nome;
+            public String senha;
+            public String email;
+
+            public Usuario()
+            {
+
+            }
+
+            public Usuario(string nome, string senha, string email)
+            {
+                this.nome = nome;
+                this.senha = senha;
+                this.email = email;
+
+            }
+
+            public void setNome(String nome)
+            {
+                this.nome = nome;
+
+            }
+            public String getNome()
+            {
+                return this.nome;
+
+            }
+
+
+            public void setSenha(String senha)
+            {
+                this.senha = senha;
+
+
+            }
+            public String getSenha()
+            {
+                return this.senha;
+            }
+
+            public void setEmail(String email)
+            {
+                this.email = email;
+
+            }
+            public String getEmail()
+            {
+                return this.email;
+
+            }
+
+        }
+
+        private void btnD_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "D";
+
+        }
+
+        private void btnE_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "E";
+        }
+
+        private void btnF_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "F";
+        }
+
+        private void btnA_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "A";
+        }
+
+        private void btnB_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "B";
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "C";
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "7";
+        }
+
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "8";
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "9";
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "4";
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "5";
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "6";
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "1";
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "2";
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "3";
+        }
+
+
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "0";
+        }
+
+
+
+        // converter 
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            int argumentoEntrada = 0;
+            int argumentoSaida = 0;
+
+            if (comboBox1.Text == "Hexadecimal")
+            {
+
+                argumentoEntrada = 16;
+
+            }
+
+            if (comboBox1.Text == "Decimal")
+            {
+
+                argumentoEntrada = 10;
+
+            }
+
+            if (comboBox1.Text == "Binario")
+            {
+
+                argumentoEntrada = 2;
+
+            }
+
+            if (comboBox2.Text == "Hexadecimal")
+            {
+
+                argumentoSaida = 16;
+
+            }
+
+            if (comboBox2.Text == "Decimal")
+            {
+
+                argumentoSaida = 10;
+
+            }
+
+            if (comboBox2.Text == "Binario")
+            {
+
+                argumentoSaida = 2;
+
+            }
+            label4.Text = Convert.ToString(Convert.ToInt32(textBox1.Text, argumentoEntrada), argumentoSaida);
+        }
+
+
+
+
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btncadastrar_Click(object sender, EventArgs e)
+        {
+            string conString = "SERVER =localhost;DATABESE=provaeafg;UID:root;PASSWORD=;";
+            MySqlConnection con = new MySqlConnection(conString);
+            MySqlCommand comando = con.CreateCommand();
+            comando.CommandText = "select now() ;as momento";
+            con.Open();
+
+            MySqlDataReader query = comando.ExecuteReader();
+
+            while (query.Read())
+            {
+                MessageBox.Show(query.GetString("momento"));
+
+            }
+        }
+
+        private void textUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+            
+
+
+
+        
+
+
+
+
+
+
+
+
+
 
